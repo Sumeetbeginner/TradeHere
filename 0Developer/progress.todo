@@ -1,0 +1,14 @@
+
+// 1. Routing all pages in {routes.py} : index/orders/portfolio/stocks/wallet/watchlist
+
+// 2. Create a Navbar with menus and appName and Logo
+
+// 3. Copy navbar in stocks.html
+
+// 4. Make all JS Function to change app page onclick menubars
+
+// 5. Create a SearchBar to searchStocks with NSE stocks data 
+
+// 6. Store data onclick in local storage of that stock
+
+7. Style searchbar and suggestion bar

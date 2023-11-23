@@ -1,0 +1,90 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+
+    --light : #2f3046;
+    --dark : #14152a;
+    --material : #3a3fc5;
+    --text : #cccfd7;
+    --red: #a15250;
+    --green : #3f604d;
+}
+
+body{
+
+    width: 100%;
+    height: 100vh;
+    background-color: var(--light);
+    font-family: 'Open Sans';
+    color: white;
+}
+
+::-webkit-scrollbar{
+    display: none;
+}
+
+.sideBar{
+    width: 16%;
+    height: 100vh;
+    background-color: var(--dark);
+
+}
+
+#appName1{
+    width: 76%;
+    display: block;
+    margin: auto;
+    padding-top: 13%;
+}
+
+.menuFlex{
+    text-align: center;
+    display: flex;
+    margin: auto;
+    cursor: pointer;
+    margin-top: 10%;
+    padding-left: 10%;
+    padding-right: 10%;
+    /* background-color: red; */
+    padding-top: 4%;
+    padding-bottom: 3%;
+    width: 70%;
+    border-radius: 10px;
+    
+}
+
+p, i{
+    color: var(--text);
+}
+
+i{
+    font-size: 20px;
+}
+
+p{
+    font-size: 18px;
+    margin-left: 10%;
+    
+}
+
+#menus{
+
+    /* background-color: red; */
+    height: 70vh;
+    padding: 13% 0% 0% 0%;
+}
+
+#home1{
+    background-color: var(--material);
+
+}
+
+.menuFlex:hover{
+    background-color: var(--light);
+}
