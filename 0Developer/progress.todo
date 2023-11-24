@@ -1,5 +1,5 @@
 
-// 1. Routing all pages in {routes.py} : index/orders/portfolio/stocks/wallet/watchlist
+// 1. Routing all pages in {routes.py} : index/orders/portfolio/stocks/wallet/watchlist/stockinfo
 
 // 2. Create a Navbar with menus and appName and Logo
 
@@ -12,3 +12,19 @@
 // 6. Store data onclick in local storage of that stock
 
 // 7. Style searchbar and suggestion bar
+
+// 8. Create a stockinfo page where user can buy or sell stock after clicking on the stock with data all stock info on that page
+
+// 9. On StockInfo Page create top bar with back button, see button for more analytics, save button, and download button
+
+// 10. Display Stock Name and NSE
+
+// 11. display stockticker down the stock name
+
+// 12. Pass stock ticker from js file to stockData.py and vice versa
+
+// 13. Connect other python pages with flask app
+
+// 14. Find Live Data in proper manner in python and send that data in js
+
+15. show first line value increases or decreased and percent and curr price

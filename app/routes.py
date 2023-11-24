@@ -29,3 +29,8 @@ def orders():
 @app.route('/index.html')
 def home():
     return render_template('index.html')
+
+@app.route('/stockinfo.html')
+def stockinfo():
+    return render_template('stockinfo.html')
+

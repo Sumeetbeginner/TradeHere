@@ -40,6 +40,15 @@ document.addEventListener('DOMContentLoaded', function () {
                     .slice(0, 10); // Limit to 10 suggestions
 
                 displaySuggestions(matchingSuggestions.map(row => row[1]));
+
+                if(suggestionsContainer.innerHTML == ""){
+                   let noStock = document.createElement("div");
+                   noStock.className = "suggestionDiv";
+                   noStock.innerHTML = "No Stock Found" 
+                   document.getElementById("suggestionsContainer").appendChild(noStock)
+
+                }
+              
             });
         })
         .catch(error => console.error('Error fetching CSV:', error));
@@ -67,6 +76,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 localStorage.setItem("currStockName", rowData[1]);
 
                 localStorage.setItem("currStockDate", rowData[3]);
+
+
+                window.location = "stockinfo.html"
+               
             }
         }
     });

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TradeHere</title>
+
+    <script
+      src="https://kit.fontawesome.com/6cc1a5eb9c.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/stockinfo.css') }}"
+    />
+
+    <link
+      rel="shortcut icon"
+      href="{{ url_for('static', filename='images/appLogos.png')}}"
+      type="image/x-icon"
+    />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+  </head>
+  <body>
+    <div class="topBar">
+      <i onclick="openStocks()" class="fa-solid fa-arrow-left"></i>
+
+      <img src="{{ url_for('static', filename='images/appName.png')}}" alt="" />
+
+      <i class="fa-solid fa-pie-chart"></i>
+      <i class="fa-solid fa-download"></i>
+      <i class="fa-solid fa-bookmark"></i>
+      <i class="fa-solid fa-newspaper"></i>
+    </div>
+
+    <div class="stockFlex">
+      <div id="stockData">
+        <div class="stockFlex2">
+          <h2 id="stockName"></h2>
+
+          <div id="tNse0">
+            <p id="tNse">NSE</p>
+          </div>
+        </div>
+        <p id="stockTicker"></p>
+
+        <h2 id="currStockPrice"></h2>
+        <p id="currChanges"></p>
+        
+      <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+      </div>
+
+      <div id="stockAction"></div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ url_for('static', filename='js/stockinfo.js') }}"></script>
+  </body>
+</html>
