@@ -94,6 +94,7 @@ img{
     font-size: 26px;
     margin-left: 5%;
     margin-top: 3.8%;
+    color: #ffb444;
 }
 
 .stockFlex2{
@@ -144,4 +145,103 @@ img{
 canvas{
     margin-left: 3.5%;
     margin-top: 5%;
+}
+
+#openClose, #buySell{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 7%;
+    
+}
+
+#stockOpen, #todayLow, #a52WeekLow, #currVol, #Buy{
+    background-color: var(--material);
+    padding: 1.5% 4%;
+    border-radius: 10px;
+    margin-right: 5%;
+  
+}
+
+#stockPrevClose, #todayHigh, #a52WeekHigh, #Sell{
+    background-color: var(--material);
+    padding: 1.5% 4%;
+    border-radius: 10px;
+    margin-left: 5%;
+}
+
+#todayLow, #a52WeekLow, #Sell{
+    background-color: red;
+}
+#todayHigh, #a52WeekHigh, #Buy{
+    background-color:green;
+}
+
+
+#currVol{
+    width: fit-content;
+    display: block;
+    margin: auto;
+    margin-top: 6%;
+}
+
+#Buy{
+    width: 25%;
+    text-align: center;
+    box-shadow: 5px 5px 5px black;
+    cursor: pointer;
+   padding-top: 1.7vh;
+   padding-bottom: 1.7vh;
+}
+
+#Sell{
+    width: 25%;
+    text-align: center;
+    box-shadow: 5px 5px 5px black;
+    cursor: pointer;
+    padding-top: 1.7vh;
+   padding-bottom: 1.7vh;
+}
+
+#Buy:hover, #Sell:hover{
+    box-shadow: none;
+    opacity: 0.95;
+}
+
+#stockInd, #stockWeb{
+    text-align: center;
+    margin-top: 5%;
+    font-size: 20px;
+}
+
+#stockWeb{
+    display: block;
+    margin: auto;
+    color: #ffb444;
+    margin-top: 3%;
+}
+
+#stockNameAgain{
+    font-size: 20px;
+    margin-left: 5%;
+    margin-top: 3%;
+    color: #44ffb1;
+}
+
+#companySum, #companyAdd, #companyCon{
+    margin-left: 5%;
+    width: 84%;
+    margin-top: 3%;
+    line-height: 30px;
+   
+}
+
+#companyAdd{
+    color: #44ffb1;
+}
+
+#companyCon{
+    margin-top: 0.6%;
+    color: #44ffb1;
+    padding-bottom: 20px;
 }

@@ -1,3 +1,4 @@
+document.getElementById("searchInput").value = "";
 
 function openPf(){
     window.location  = "portfolio.html"

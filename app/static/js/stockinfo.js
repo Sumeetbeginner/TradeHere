@@ -58,7 +58,7 @@ function impData() {
     let todayLow = currStockResult.dayLow
     let todayHigh = currStockResult.dayHigh
 
-    let fiftyTwoWeekLow = currStockResult.fififtyTwoWeekLow;
+    let fiftyTwoWeekLow = currStockResult.fiftyTwoWeekLow;
     let fiftyTwoWeekHigh = currStockResult.fiftyTwoWeekHigh
 
     let currVol = currStockResult.regularMarketVolume;
@@ -132,6 +132,8 @@ function impData() {
                 }
             }
         });
+
+
     }
     else {
         document.getElementById("currChanges").innerHTML = "🡻 " + todayPriceChange + "  (" + marketPercent + "%)"
@@ -161,7 +163,7 @@ function impData() {
                     yAxes: [{ ticks: {
                         min: (todayLow / 1.2),
                         max: (todayHigh + (todayHigh / 9)),
-                        fontColor: 'blue' 
+                        fontColor: 'white' 
                 }}],
                 xAxes: [{
                     ticks:{
@@ -174,8 +176,27 @@ function impData() {
         });
     }
 
+document.getElementById("stockOpen").innerHTML = "Today Open : ₹" +(marketOpen).toFixed(2);
+document.getElementById("stockPrevClose").innerHTML = "Previous Close : ₹" +(marketPrevClose).toFixed(2);
 
+document.getElementById("todayLow").innerHTML = "Today's Low : ₹" +(todayLow).toFixed(2);
+document.getElementById("todayHigh").innerHTML = "Today's High : ₹" +(todayHigh).toFixed(2);
 
+document.getElementById("a52WeekLow").innerHTML = "52-week Low : ₹" +(fiftyTwoWeekLow).toFixed(2);
+document.getElementById("a52WeekHigh").innerHTML = "52-week High : ₹" +(fiftyTwoWeekHigh).toFixed(2);
+
+document.getElementById("currVol").innerHTML = "Volume : " + (currVol).toFixed(2) + " Shares"
+
+document.getElementById("stockInd").innerHTML = "Industry : " + stockIndustry
+
+document.getElementById("stockWeb").href = stockWebsite
+
+document.getElementById("stockNameAgain").innerHTML = stockName + " (" + stockCity + ")"
+
+document.getElementById("companySum").innerHTML = stockSummary 
+
+document.getElementById("companyAdd").innerHTML = "🏢 " +stockAdd1 + ", " + stockAdd2
+document.getElementById("companyCon").innerHTML = "📞 + " + stockContact
 }
 
 setInterval(() => {
