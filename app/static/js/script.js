@@ -17,6 +17,9 @@ function openMyOrders() {
 
 if (localStorage.getItem("UserRegistered") != "True") {
 
+let UserLastTenTransactionData = [{"desc" : "False", "amt" : "False"}, {"desc" : "False", "amt" : "False"}, {"desc" : "False", "amt" : "False"}, {"desc" : "False", "amt" : "False"}, {"desc" : "False", "amt" : "False"}, {"desc" : "False", "amt" : "False"}, {"desc" : "False", "amt" : "False"}, {"desc" : "False", "amt" : "False"}, {"desc" : "False", "amt" : "False"}, {"desc" : "False", "amt" : "False"}]
+
+localStorage.setItem("UserCurrTransactions", JSON.stringify(UserLastTenTransactionData));
 
 localStorage.setItem("UserCurrentTradingBalance", "50000")
 localStorage.setItem("UserCurrentSavingBalance", "50000")

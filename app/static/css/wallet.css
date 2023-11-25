@@ -350,3 +350,18 @@ input{
     justify-content: center;
     align-items: center;
 }
+
+.desc{
+    margin-right: 25%;
+    font-weight: 700;
+}
+
+
+.amt{
+    margin-right: 5%;
+    font-weight: 700;
+}
+
+#myChart2{
+    padding-top: 3%;
+}

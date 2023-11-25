@@ -41,4 +41,4 @@
 
 // 21. Create add money and withdraw money logic from saving to trading and viceverse
 
-22. Create transaction history last 10 transaction div and apply logic using local storage 
+22. Create transaction history last 10 transaction div and apply logic using local storage ::: DO it with Logic insertion in array at index 0 and delete last element by shifting
