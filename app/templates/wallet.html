@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TradeHere</title>
+
+    <script
+      src="https://kit.fontawesome.com/6cc1a5eb9c.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/wallet.css') }}"
+    />
+
+    <link
+      rel="shortcut icon"
+      href="{{ url_for('static', filename='images/appLogos.png')}}"
+      type="image/x-icon"
+    />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+  </head>
+
+  <body>
+    <div id="sideBar1" class="sideBar">
+      <img
+        id="appName1"
+        src="{{ url_for('static', filename='images/appName.png')}}"
+        alt=""
+      />
+
+      <div id="menus">
+        <div onclick="openHome()" class="menuFlex" id="home1">
+          <i class="fas fa-home" id="home2"></i>
+          <p class="menuName" id="home3">Home</p>
+        </div>
+        <div onclick="openPf()" class="menuFlex" id="pf1">
+          <i class="fas fa-briefcase" id="pf2"></i>
+          <p class="menuName" id="pf3">Portfolio</p>
+        </div>
+        <div onclick="openStocks()" class="menuFlex" id="stocks1">
+          <i class="fa-solid fa-arrow-trend-up" id="stocks2"></i>
+          <p class="menuName" id="stocks3">Stocks</p>
+        </div>
+        <div onclick="openWatchList()" class="menuFlex" id="watchList1">
+          <i class="fa-solid fa-bookmark" id="watchList2"></i>
+          <p class="menuName" id="watchList3">Watchlist</p>
+        </div>
+        <div class="menuFlex" id="wallet1">
+          <i class="fa-solid fa-wallet" id="wallet2"></i>
+          <p class="menuName" id="wallet3">Wallet</p>
+        </div>
+        <div onclick="openMyOrders()" class="menuFlex" id="myOrder1">
+          <i class="fa-solid fa-cart-shopping" id="myOrder2"></i>
+          <p class="menuName" id="myOrder3">My Orders</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="stockBox">
+      <div id="flexDiv">
+        <div id="blockDiv">
+          <div id="analyticsDiv"></div>
+          <div id="historyDiv">
+            <h3 id="transHistText">Transaction History</h3>
+
+            <div id="transHistoryDiv">
+              <div class="transHisDetails" id="transH1">
+                <p id="desc1" class="desc"></p>
+                <p id="amt1" class="amt"></p>
+              </div>
+              <div class="transHisDetails" id="transH2">
+                <p id="desc2" class="desc"></p>
+                <p id="amt2" class="amt"></p>
+              </div>
+              <div class="transHisDetails" id="transH3">
+                <p id="desc3" class="desc"></p>
+                <p id="amt3" class="amt"></p>
+              </div>
+              <div class="transHisDetails" id="transH4">
+                <p id="desc4" class="desc"></p>
+                <p id="amt4" class="amt"></p>
+              </div>
+              <div class="transHisDetails" id="transH5">
+                <p id="desc5" class="desc"></p>
+                <p id="amt5" class="amt"></p>
+              </div>
+              <div class="transHisDetails" id="transH6">
+                <p id="desc6" class="desc"></p>
+                <p id="amt6" class="amt"></p>
+              </div>
+              <div class="transHisDetails" id="transH7">
+                <p id="desc7" class="desc"></p>
+                <p id="amt7" class="amt"></p>
+              </div>
+              <div class="transHisDetails" id="transH8">
+                <p id="desc8" class="desc"></p>
+                <p id="amt8" class="amt"></p>
+              </div>
+              <div class="transHisDetails" id="transH9">
+                <p id="desc9" class="desc"></p>
+                <p id="amt9" class="amt"></p>
+              </div>
+              <div class="transHisDetails" id="transH10">
+                <p id="desc10" class="desc"></p>
+                <p id="amt10" class="amt"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="walletDiv">
+          <div id="walletFlex">
+            <h2 id="wallText">Balance</h2>
+            <i
+              title="Every Month 50,000rs will be added in the Saving Account"
+              class="fas fa-info-circle"
+              id="wallInfo"
+            ></i>
+          </div>
+
+          <h2 id="currBal"></h2>
+
+          <div id="wallFlex">
+            <p onclick="openAddMoney()" id="addMoney">Add Money</p>
+            <p onclick="openWithdrawMoney()" id="withdrawMoney">Withdraw</p>
+          </div>
+
+          <div id="savingFlex">
+            <p id="savBal">Saving Account Balance ></p>
+
+            <p id="savBalNum"></p>
+          </div>
+
+          <canvas id="myChart" style="width: 100%; max-width: 700px"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <div class="popUp" id="fixedAddMoney">
+      <h2 id="top1">Add Money</h2>
+      <input
+        min="0"
+        id="addMoneyInp"
+        step="100"
+        placeholder="Enter Amount to Add"
+        type="number"
+      />
+
+      <p id="warn1">*Amount will be deducted from Saving Account</p>
+
+      <p onclick="addMoneyTrans()" id="addMoneyBtn">Add Now</p>
+      <p onclick="closeAddMoney()" id="closeBox">Close</p>
+    </div>
+    <div class="popUp" id="fixedWithdrawMoney">
+      <h2 id="top2">Withdraw Money</h2>
+      <input
+        min="0"
+        id="withdrawMoneyInp"
+        step="100"
+        placeholder="Enter Amount to Withdraw"
+        type="number"
+      />
+
+      <p id="warn1">*Amount will be added into Saving Account</p>
+
+      <p onclick="withdrawMoneyTrans()" id="withdrawMoneyNow">Withdraw Now</p>
+      <p onclick="closeWithdrawMoney()" id="closeBox2">Close</p>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/wallet.js') }}"></script>
+  </body>
+</html>

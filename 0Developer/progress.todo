@@ -27,4 +27,18 @@
 
 // 14. Find Live Data in proper manner in python and send that data in js
 
-15. show first line value increases or decreased and percent and curr price
+// 15. show first line value increases or decreased and percent and curr price
+
+// 16. Show all data include buy and sell button in stockinfo.html
+
+// 17. Setup wallet.html and copy menu and navbar 
+
+// 18. Create 3 boxes one for wallet , transactionhistory, analytics, 
+
+//  19. Fill up Wallet Box
+
+// 20. Add 50000rs every month in saving account
+
+// 21. Create add money and withdraw money logic from saving to trading and viceverse
+
+22. Create transaction history last 10 transaction div and apply logic using local storage 
