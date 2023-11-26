@@ -35,10 +35,20 @@
 
 // 18. Create 3 boxes one for wallet , transactionhistory, analytics, 
 
-//  19. Fill up Wallet Box
+// 19. Fill up Wallet Box
 
 // 20. Add 50000rs every month in saving account
 
 // 21. Create add money and withdraw money logic from saving to trading and viceverse
 
-22. Create transaction history last 10 transaction div and apply logic using local storage ::: DO it with Logic insertion in array at index 0 and delete last element by shifting
+// 22. Create transaction history last 10 transaction div and apply logic using local storage ::: DO it with Logic insertion in array at index 0 and delete last element by shifting
+
+// 22. Write buy button logic to buy share and store it in array inside object : StockName/StockTicker/NoOfShares/currPrice/BuyPrice/CurrPricePerShare/BuyPricePerShare/TypeOfBuy-Cash/Intraday
+
+// 23. SetUp Portfolio Page
+
+// 24. Create Table with all necessary details
+
+// 25. Run a for loop of potfolio array in local storage and add all details dynamically of stocks purchased
+
+26. Update every stock curr price in portfolio in every 10 seconds using for loop and update portfolio in localstorage

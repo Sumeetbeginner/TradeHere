@@ -21,6 +21,10 @@ let UserLastTenTransactionData = [{"desc" : "False", "amt" : "False"}, {"desc" :
 
 localStorage.setItem("UserCurrTransactions", JSON.stringify(UserLastTenTransactionData));
 
+let portfolio = [{"empty" : "empty"}];
+
+localStorage.setItem("PortFolio", JSON.stringify(portfolio));
+
 localStorage.setItem("UserCurrentTradingBalance", "50000")
 localStorage.setItem("UserCurrentSavingBalance", "50000")
 

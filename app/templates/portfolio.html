@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TradeHere</title>
+
+    <script
+      src="https://kit.fontawesome.com/6cc1a5eb9c.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/portfolio.css') }}"
+    />
+
+    <link
+      rel="shortcut icon"
+      href="{{ url_for('static', filename='images/appLogos.png')}}"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <div id="sideBar1" class="sideBar">
+      <img
+        id="appName1"
+        src="{{ url_for('static', filename='images/appName.png')}}"
+        alt=""
+      />
+
+      <div id="menus">
+        <div onclick="openHome()" class="menuFlex" id="home1">
+          <i class="fas fa-home" id="home2"></i>
+          <p class="menuName" id="home3">Home</p>
+        </div>
+        <div class="menuFlex" id="pf1">
+          <i class="fas fa-briefcase" id="pf2"></i>
+          <p class="menuName" id="pf3">Portfolio</p>
+        </div>
+        <div onclick="openStocks()" class="menuFlex" id="stocks1">
+          <i class="fa-solid fa-arrow-trend-up" id="stocks2"></i>
+          <p class="menuName" id="stocks3">Stocks</p>
+        </div>
+        <div onclick="openWatchList()" class="menuFlex" id="watchList1">
+          <i class="fa-solid fa-bookmark" id="watchList2"></i>
+          <p class="menuName" id="watchList3">Watchlist</p>
+        </div>
+        <div onclick="openWallet()" class="menuFlex" id="wallet1">
+          <i class="fa-solid fa-wallet" id="wallet2"></i>
+          <p class="menuName" id="wallet3">Wallet</p>
+        </div>
+        <div onclick="openMyOrders()" class="menuFlex" id="myOrder1">
+          <i class="fa-solid fa-cart-shopping" id="myOrder2"></i>
+          <p class="menuName" id="myOrder3">My Orders</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="stockBox">
+      <table id="pfTable0" class="pfTable">
+        <thead id="pfHead0" class="pfHead">
+          <tr id="tableRow0" class="tableRow">
+            <th class="pfHeadText" id="pfHeadText1">SrNo.</th>
+            <!-- <th class="pfHeadText" id="pfHeadText2">Stock Name</th> -->
+            <th class="pfHeadText" id="pfHeadText2">Stock Ticker</th>
+            <th class="pfHeadText" id="pfHeadText3">Qty</th>
+            <th class="pfHeadText" id="pfHeadText4">Buy Price</th>
+            <th class="pfHeadText" id="pfHeadText5">Curr Price</th>
+            <th class="pfHeadText" id="pfHeadText6">Buy ₹/Share</th>
+            <th class="pfHeadText" id="pfHeadText7">Curr ₹/Share</th>
+            <th class="pfHeadText" id="pfHeadText8">% Change</th>
+            <th class="pfHeadText" id="pfHeadText9">Amt Change</th>
+            <th class="pfHeadText" id="pfHeadText10">Type</th>
+            <th class="pfHeadText" id="pfHeadText11">Action</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+    <script src="{{ url_for('static', filename='js/portfolio.js') }}"></script>
+  </body>
+</html>

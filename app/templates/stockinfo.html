@@ -84,15 +84,39 @@
 <a target="_blank" id="stockWeb">Official Website</a>
 
 <div id="buySell">
-  <p id="Buy">Buy</p>
-  <p id="Sell">Sell</p>
+  <p onclick="openBuyStocks()" id="Buy">Buy</p>
+  <p onclick="openSellStocks()"  id="Sell">Sell</p>
 </div>
 
       </div>
 
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <div id="buyBox" class="popUp">
+
+      <h2 id="shareName">Temporary</h2>
+
+      <select name="typeOfBuy" id="typeOfBuy">
+        <option value="cash">Cash</option>
+      
+      </select>
+
+      <div id="enterAmtFlex">
+
+        <i onclick="decreaseShare()" class="fas fa-minus"></i>
+        <p id="currAmtEdit">1</p>
+        <i onclick="increaseShare()" class="fas fa-plus"></i>
+
+      </div>
+
+      <p id="amountToBePaid">₹10000</p>
+
+      <button onclick="finalBuyShare()" class="btn" id="buyShare">Buy</button>
+      <button onclick="closeBuyBox()" class="btn" id="closeBox1">Close</button>
+
+    </div>
+
+ 
     <script src="{{ url_for('static', filename='js/stockinfo.js') }}"></script>
   </body>
 </html>

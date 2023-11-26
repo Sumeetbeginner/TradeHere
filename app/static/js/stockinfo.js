@@ -94,6 +94,8 @@ function impData() {
 
     let stockWebsite = currStockResult.website
 
+    localStorage.setItem("UserCurrStockPrice", currPrice);
+
     document.getElementById("currStockPrice").innerHTML = "₹" + currPrice
 
     if (marketUpOrDown == 'UP') {
@@ -119,16 +121,18 @@ function impData() {
             options: {
                 legend: { display: false },
                 scales: {
-                    yAxes: [{ ticks: {
-                        min: (todayLow / 1.2),
-                        max: (todayHigh + (todayHigh / 9)),
-                        fontColor: 'white' 
-                }}],
-                xAxes: [{
-                    ticks:{
-                        fontColor: "white"
-                    }
-                }]
+                    yAxes: [{
+                        ticks: {
+                            min: (todayLow / 1.2),
+                            max: (todayHigh + (todayHigh / 9)),
+                            fontColor: 'white'
+                        }
+                    }],
+                    xAxes: [{
+                        ticks: {
+                            fontColor: "white"
+                        }
+                    }]
                 }
             }
         });
@@ -160,43 +164,45 @@ function impData() {
             options: {
                 legend: { display: false },
                 scales: {
-                    yAxes: [{ ticks: {
-                        min: (todayLow / 1.2),
-                        max: (todayHigh + (todayHigh / 9)),
-                        fontColor: 'white' 
-                }}],
-                xAxes: [{
-                    ticks:{
-                        fontColor: "white"
-                    }
-                }]
+                    yAxes: [{
+                        ticks: {
+                            min: (todayLow / 1.2),
+                            max: (todayHigh + (todayHigh / 9)),
+                            fontColor: 'white'
+                        }
+                    }],
+                    xAxes: [{
+                        ticks: {
+                            fontColor: "white"
+                        }
+                    }]
 
                 }
             }
         });
     }
 
-document.getElementById("stockOpen").innerHTML = "Today Open : ₹" +(marketOpen).toFixed(2);
-document.getElementById("stockPrevClose").innerHTML = "Previous Close : ₹" +(marketPrevClose).toFixed(2);
+    document.getElementById("stockOpen").innerHTML = "Today Open : ₹" + (marketOpen).toFixed(2);
+    document.getElementById("stockPrevClose").innerHTML = "Previous Close : ₹" + (marketPrevClose).toFixed(2);
 
-document.getElementById("todayLow").innerHTML = "Today's Low : ₹" +(todayLow).toFixed(2);
-document.getElementById("todayHigh").innerHTML = "Today's High : ₹" +(todayHigh).toFixed(2);
+    document.getElementById("todayLow").innerHTML = "Today's Low : ₹" + (todayLow).toFixed(2);
+    document.getElementById("todayHigh").innerHTML = "Today's High : ₹" + (todayHigh).toFixed(2);
 
-document.getElementById("a52WeekLow").innerHTML = "52-week Low : ₹" +(fiftyTwoWeekLow).toFixed(2);
-document.getElementById("a52WeekHigh").innerHTML = "52-week High : ₹" +(fiftyTwoWeekHigh).toFixed(2);
+    document.getElementById("a52WeekLow").innerHTML = "52-week Low : ₹" + (fiftyTwoWeekLow).toFixed(2);
+    document.getElementById("a52WeekHigh").innerHTML = "52-week High : ₹" + (fiftyTwoWeekHigh).toFixed(2);
 
-document.getElementById("currVol").innerHTML = "Volume : " + (currVol).toFixed(2) + " Shares"
+    document.getElementById("currVol").innerHTML = "Volume : " + (currVol).toFixed(2) + " Shares"
 
-document.getElementById("stockInd").innerHTML = "Industry : " + stockIndustry
+    document.getElementById("stockInd").innerHTML = "Industry : " + stockIndustry
 
-document.getElementById("stockWeb").href = stockWebsite
+    document.getElementById("stockWeb").href = stockWebsite
 
-document.getElementById("stockNameAgain").innerHTML = stockName + " (" + stockCity + ")"
+    document.getElementById("stockNameAgain").innerHTML = stockName + " (" + stockCity + ")"
 
-document.getElementById("companySum").innerHTML = stockSummary 
+    document.getElementById("companySum").innerHTML = stockSummary
 
-document.getElementById("companyAdd").innerHTML = "🏢 " +stockAdd1 + ", " + stockAdd2
-document.getElementById("companyCon").innerHTML = "📞 + " + stockContact
+    document.getElementById("companyAdd").innerHTML = "🏢 " + stockAdd1 + ", " + stockAdd2
+    document.getElementById("companyCon").innerHTML = "📞 + " + stockContact
 }
 
 setInterval(() => {
@@ -206,7 +212,137 @@ setInterval(() => {
 
 }, 10000);
 
+function openBuyStocks() {
+
+    if(Number(localStorage.getItem("UserCurrStockPrice")) > Number(localStorage.getItem("UserCurrentTradingBalance"))){
+
+        alert("⚠️ You dont have Enough Money in Trading Account to buy this Stock")
+
+    }
+    else{
+
+    document.getElementById("currAmtEdit").innerHTML = "1";
+    
+
+    document.getElementById("buyBox").style.display = "block"
+
+    document.getElementById("amountToBePaid").innerHTML = "₹" + (Number(document.getElementById("currAmtEdit").innerHTML) * Number(localStorage.getItem("UserCurrStockPrice"))).toFixed(2)
+
+    }
+
+}
+function closeBuyBox() {
+    document.getElementById("buyBox").style.display = "none"
+}
+
+function finalBuyShare(){
 
 
 
+    let stockName = localStorage.getItem("currStockName");
+
+    let stockTicker = localStorage.getItem("currStockTicker");
+
+    let shareQuantity = document.getElementById("currAmtEdit").innerHTML;
+
+    let currTotalPrice = Number(localStorage.getItem("UserCurrStockPrice")) * Number(shareQuantity); //! Update it Every 10 Seconds on portfolio
+
+    let currPerSharePrice = Number(localStorage.getItem("UserCurrStockPrice")); //! Update it Every 10 Seconds on portfolio
+
+    let buyTotalPrice = Number(localStorage.getItem("UserCurrStockPrice")) * Number(shareQuantity); 
+
+    let buyPerSharePrice = Number(localStorage.getItem("UserCurrStockPrice"));
+
+    let typeOfBuy = document.getElementById("typeOfBuy").value;
+
+    let portfolioShare = {
+
+        "stockName" : stockName,
+        "stockTicker" : stockTicker,
+        "shareQuantity" : shareQuantity,
+        "currTotalPrice" : currTotalPrice.toFixed(2),
+        "currPerSharePrice" : (currPerSharePrice).toFixed(2),
+        "buyTotalPrice" : (buyTotalPrice).toFixed(2),
+        "buyPerSharePrice" : (buyPerSharePrice).toFixed(2),
+        "typeOfBuy" : typeOfBuy
+    
+    }
+
+    localStorage.setItem("UserCurrentTradingBalance", (Number(localStorage.getItem("UserCurrentTradingBalance")) - Number(buyTotalPrice)).toFixed(2))
+
+    let portfolioData = JSON.parse(localStorage.getItem("PortFolio"));
+
+    portfolioData.unshift(portfolioShare);
+    
+    localStorage.setItem("PortFolio", JSON.stringify(portfolioData));
+
+    addTransHistory(stockTicker, buyTotalPrice, "-");
+
+    alert("✅ Stock Purchased Successfully! Check it out on Portfolio 😊")
+    
+}
+
+
+function increaseShare() {
+
+    if (Number((document.getElementById("amountToBePaid").innerHTML).substring(1)) > Number(localStorage.getItem("UserCurrentTradingBalance"))) {
+
+        alert("⚠️ Not have Enough Money in trading Account");
+
+        if (Number((document.getElementById("amountToBePaid").innerHTML).substring(1)) > Number(localStorage.getItem("UserCurrentTradingBalance"))) {
+
+            document.getElementById("currAmtEdit").innerHTML = Number(document.getElementById("currAmtEdit").innerHTML) - Number(1);
+
+            document.getElementById("amountToBePaid").innerHTML = "₹" + (Number((document.getElementById("currAmtEdit").innerHTML)) * Number(localStorage.getItem("UserCurrStockPrice"))).toFixed(2)
+
+        }
+
+    }
+    else {
+
+        document.getElementById("currAmtEdit").innerHTML = Number(document.getElementById("currAmtEdit").innerHTML) + Number(1);
+
+        document.getElementById("amountToBePaid").innerHTML = "₹" + (Number((document.getElementById("currAmtEdit").innerHTML)) * Number(localStorage.getItem("UserCurrStockPrice"))).toFixed(2)
+
+        if (Number((document.getElementById("amountToBePaid").innerHTML).substring(1)) > Number(localStorage.getItem("UserCurrentTradingBalance"))) {
+
+            document.getElementById("currAmtEdit").innerHTML = Number(document.getElementById("currAmtEdit").innerHTML) - Number(1);
+
+            document.getElementById("amountToBePaid").innerHTML = "₹" + (Number((document.getElementById("currAmtEdit").innerHTML)) * Number(localStorage.getItem("UserCurrStockPrice"))).toFixed(2)
+
+        }
+    }
+}
+
+function decreaseShare() {
+
+    if (Number((document.getElementById("currAmtEdit").innerHTML)) >=2) {
+
+        document.getElementById("currAmtEdit").innerHTML = Number(document.getElementById("currAmtEdit").innerHTML) - Number(1);
+
+        
+        document.getElementById("amountToBePaid").innerHTML = "₹" + (Number((document.getElementById("currAmtEdit").innerHTML)) * Number(localStorage.getItem("UserCurrStockPrice"))).toFixed(2)
+    
+
+    }
+  
+
+}
+
+
+
+
+function addTransHistory(desc, amt, operator) {
+
+    let UserTransHistory = JSON.parse(localStorage.getItem("UserCurrTransactions"));
+
+    UserTransHistory.pop();
+
+    UserTransHistory.unshift({ "desc": desc, "amt": operator + "₹" + amt });
+
+    localStorage.setItem("UserCurrTransactions", JSON.stringify(UserTransHistory))
+
+    document.getElementById("buyBox").style.display = "none";
+
+}
 
