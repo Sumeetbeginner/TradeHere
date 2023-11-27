@@ -23,6 +23,7 @@ body{
     background-color: var(--light);
     font-family: 'Open Sans';
     color: white;
+    user-select: none;
 }
 
 ::-webkit-scrollbar{
@@ -43,6 +44,14 @@ body{
     padding-top: 13%;
 }
 
+#enterAmtFlex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8%;
+}
+
+
 .menuFlex{
     text-align: center;
     display: flex;
@@ -59,6 +68,139 @@ body{
     
 }
 
+.popUp{
+    width: 28%;
+    position: fixed;
+    height: 65vh;
+    top: 0%;
+    background-color: var(--light);
+    top: 50%;
+    left: 50%;
+    margin-top: -18%;
+    /* Negative half of height. */
+    margin-left: -20vh;
+    /* Negative half of width. */
+    border-radius: 15px;
+    border: solid 2px var(--material);
+    box-shadow: 5px 5px 5px black;
+   
+}
+
+#shareName{
+    text-align: center;
+    font-size: 25px;
+    margin-top: 3%;
+    width: 100%;
+    display: block;
+    margin: auto;
+    margin-top: 5%;
+    color: #ffb444;
+}
+
+#shareName{
+    text-align: center;
+    font-size: 25px;
+    margin-top: 3%;
+    width: 100%;
+    display: block;
+    margin: auto;
+    margin-top: 5%;
+    color: #ffb444;
+}
+
+
+#currAmtEdit{
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 2.5%;
+    border-radius: 10px;
+    padding-bottom:2.5%;
+    font-size: 25px;
+    
+    width: fit-content;
+    background-color: var(--material);
+}
+
+
+.fa-minus{
+    padding-right: -8%;
+    color:#ff5454;
+    font-size: 30px;
+   
+}
+
+.fa-plus{
+    padding-left: 8%;
+    color: #03ff46;
+    font-size: 30px;
+}
+
+.fa-minus:hover{
+    color:#ff5454;
+}
+
+.fa-plus:hover{
+    color:#03ff46;
+}
+.fa-minus:active{
+    color:white;
+}
+
+.fa-plus:active{
+    color:white;
+}
+
+#amountToBeGet{
+    width: fit-content;
+    font-size: 25px;
+    display: block;
+    margin: auto;
+    margin-top: 10%;
+    padding: 2% 9%;
+    background-color: var(--material);
+    border-radius: 13px;
+}
+
+#sellShare{
+
+    width: fit-content;
+    font-size: 20px;
+    display: block;
+    margin: auto;
+    margin-top: 10%;
+    padding: 2% 19%;
+    background-color: rgb(243, 114, 9);
+    border-radius: 13px;
+    color: white;
+    border: none;
+    box-shadow: 3px 3px 3px black;
+    cursor: pointer;
+}
+
+
+
+#closeBox1{
+
+    width: fit-content;
+    font-size: 20px;
+    display: block;
+    margin: auto;
+    margin-top: 5%;
+    padding: 2% 13%;
+    background-color: red;
+    border-radius: 13px;
+    color: white;
+    border: none;
+    box-shadow: 3px 3px 3px black;
+    cursor: pointer;
+}
+
+#sellShare:hover{
+    box-shadow:  none;
+}
+#closeBox1:hover{
+    box-shadow:  none;
+}
 
 
 p, i{
@@ -167,3 +309,19 @@ thead{
 #pfHeadText10{
     width: 7%;
 }
+
+i{
+    cursor: pointer;
+}
+
+#amtToSell{
+    
+    text-align: center;
+    margin-right: 9%;
+    margin-top: 6%;
+}
+
+#sellBox{
+    display: none;
+}
+

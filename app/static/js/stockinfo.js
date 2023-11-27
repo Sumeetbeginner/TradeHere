@@ -31,6 +31,8 @@ function getStockDataFromPython() {
             localStorage.setItem('stockResult', resultJSONString);
             localStorage.setItem('stockNews', JSON.stringify(result.result2));
 
+            document.body.style.visibility = "visible";
+
             impData()
 
         });
@@ -214,19 +216,19 @@ setInterval(() => {
 
 function openBuyStocks() {
 
-    if(Number(localStorage.getItem("UserCurrStockPrice")) > Number(localStorage.getItem("UserCurrentTradingBalance"))){
+    if (Number(localStorage.getItem("UserCurrStockPrice")) > Number(localStorage.getItem("UserCurrentTradingBalance"))) {
 
         alert("⚠️ You dont have Enough Money in Trading Account to buy this Stock")
 
     }
-    else{
+    else {
 
-    document.getElementById("currAmtEdit").innerHTML = "1";
-    
+        document.getElementById("currAmtEdit").innerHTML = "1";
 
-    document.getElementById("buyBox").style.display = "block"
 
-    document.getElementById("amountToBePaid").innerHTML = "₹" + (Number(document.getElementById("currAmtEdit").innerHTML) * Number(localStorage.getItem("UserCurrStockPrice"))).toFixed(2)
+        document.getElementById("buyBox").style.display = "block"
+
+        document.getElementById("amountToBePaid").innerHTML = "₹" + (Number(document.getElementById("currAmtEdit").innerHTML) * Number(localStorage.getItem("UserCurrStockPrice"))).toFixed(2)
 
     }
 
@@ -235,7 +237,7 @@ function closeBuyBox() {
     document.getElementById("buyBox").style.display = "none"
 }
 
-function finalBuyShare(){
+function finalBuyShare() {
 
 
 
@@ -249,7 +251,7 @@ function finalBuyShare(){
 
     let currPerSharePrice = Number(localStorage.getItem("UserCurrStockPrice")); //! Update it Every 10 Seconds on portfolio
 
-    let buyTotalPrice = Number(localStorage.getItem("UserCurrStockPrice")) * Number(shareQuantity); 
+    let buyTotalPrice = Number(localStorage.getItem("UserCurrStockPrice")) * Number(shareQuantity);
 
     let buyPerSharePrice = Number(localStorage.getItem("UserCurrStockPrice"));
 
@@ -257,15 +259,15 @@ function finalBuyShare(){
 
     let portfolioShare = {
 
-        "stockName" : stockName,
-        "stockTicker" : stockTicker,
-        "shareQuantity" : shareQuantity,
-        "currTotalPrice" : currTotalPrice.toFixed(2),
-        "currPerSharePrice" : (currPerSharePrice).toFixed(2),
-        "buyTotalPrice" : (buyTotalPrice).toFixed(2),
-        "buyPerSharePrice" : (buyPerSharePrice).toFixed(2),
-        "typeOfBuy" : typeOfBuy
-    
+        "stockName": stockName,
+        "stockTicker": stockTicker,
+        "shareQuantity": shareQuantity,
+        "currTotalPrice": currTotalPrice.toFixed(2),
+        "currPerSharePrice": (currPerSharePrice).toFixed(2),
+        "buyTotalPrice": (buyTotalPrice).toFixed(2),
+        "buyPerSharePrice": (buyPerSharePrice).toFixed(2),
+        "typeOfBuy": typeOfBuy
+
     }
 
     localStorage.setItem("UserCurrentTradingBalance", (Number(localStorage.getItem("UserCurrentTradingBalance")) - Number(buyTotalPrice)).toFixed(2))
@@ -273,13 +275,13 @@ function finalBuyShare(){
     let portfolioData = JSON.parse(localStorage.getItem("PortFolio"));
 
     portfolioData.unshift(portfolioShare);
-    
+
     localStorage.setItem("PortFolio", JSON.stringify(portfolioData));
 
     addTransHistory(stockTicker, buyTotalPrice, "-");
 
     alert("✅ Stock Purchased Successfully! Check it out on Portfolio 😊")
-    
+
 }
 
 
@@ -316,16 +318,16 @@ function increaseShare() {
 
 function decreaseShare() {
 
-    if (Number((document.getElementById("currAmtEdit").innerHTML)) >=2) {
+    if (Number((document.getElementById("currAmtEdit").innerHTML)) >= 2) {
 
         document.getElementById("currAmtEdit").innerHTML = Number(document.getElementById("currAmtEdit").innerHTML) - Number(1);
 
-        
+
         document.getElementById("amountToBePaid").innerHTML = "₹" + (Number((document.getElementById("currAmtEdit").innerHTML)) * Number(localStorage.getItem("UserCurrStockPrice"))).toFixed(2)
-    
+
 
     }
-  
+
 
 }
 
@@ -338,7 +340,7 @@ function addTransHistory(desc, amt, operator) {
 
     UserTransHistory.pop();
 
-    UserTransHistory.unshift({ "desc": desc, "amt": operator + "₹" + amt });
+    UserTransHistory.unshift({ "desc": desc, "amt": operator + "₹" + (amt).toFixed(2) });
 
     localStorage.setItem("UserCurrTransactions", JSON.stringify(UserTransHistory))
 
@@ -346,3 +348,6 @@ function addTransHistory(desc, amt, operator) {
 
 }
 
+function openSellStocks(){
+    window.location = "portfolio.html"
+}

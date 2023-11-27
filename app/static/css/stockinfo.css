@@ -23,6 +23,7 @@ body{
     font-family: 'Open Sans';
     color: white;
     user-select: none;
+    visibility: hidden;
 }
 
 ::-webkit-scrollbar{
@@ -268,7 +269,6 @@ canvas{
     border-radius: 15px;
     border: solid 2px var(--material);
     box-shadow: 5px 5px 5px black;
-   
 }
 
 #shareName{

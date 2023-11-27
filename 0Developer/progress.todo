@@ -51,4 +51,15 @@
 
 // 25. Run a for loop of potfolio array in local storage and add all details dynamically of stocks purchased
 
-26. Update every stock curr price in portfolio in every 10 seconds using for loop and update portfolio in localstorage
+// 26. Update every stock curr price in portfolio in every 10 seconds using for loop and update portfolio in localstorage and update table Too
+
+// 27. Make Sell Box and show when user clicks on sell button and store index no to be sell
+
+// 28. Create all function decrease increase
+
+29. Now final Share Logic if quantity to be sell is max then delete that data in pf and if its less than max then only decreade quantity in the pf data
+
+Changes to make for this : if(quantityToSell == totalShareInPortfolio) : Delete whole index after selling 
+else : Update TotalBuySharePrice/TotalCurrSharePrice
+and updatequantity by reducing
+Update Trans History

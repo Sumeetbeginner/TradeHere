@@ -77,6 +77,28 @@
         </thead>
       </table>
     </div>
+
+    <div id="sellBox" class="popUp">
+      <h2 id="shareName">Temporary</h2>
+
+      <p id="amtToSell">Enter Amount to Sell</p>
+
+      <div id="enterAmtFlex">
+        <i onclick="decreaseShare()" class="fas fa-minus"></i>
+        <p id="currAmtEdit"></p>
+        <i onclick="increaseShare()" class="fas fa-plus"></i>
+      </div>
+
+      <p id="amountToBeGet"></p>
+
+      <button onclick="finalSellShare()" class="btn" id="sellShare">
+        Sell
+      </button>
+      <button onclick="closeSellBox()" class="btn" id="closeBox1">Close</button>
+    </div>
+
+    
+
     <script src="{{ url_for('static', filename='js/portfolio.js') }}"></script>
   </body>
 </html>

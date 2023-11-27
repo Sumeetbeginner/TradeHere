@@ -14,6 +14,8 @@ function openMyOrders() {
     window.location = "orders.html"
 }
 
+
+
 document.getElementById("currBal").innerHTML = "₹" + localStorage.getItem("UserCurrentTradingBalance")
 
 document.getElementById("savBalNum").innerHTML = "₹" + localStorage.getItem("UserCurrentSavingBalance")
@@ -57,7 +59,7 @@ addMoneyInput.addEventListener('input', function () {
 
     if (addMoneyInput.value < 1) {
 
-        addMoneyInput.value = "1"
+        addMoneyInput.value = ""
 
     }
 
@@ -119,7 +121,7 @@ addMoneyInput2.addEventListener('input', function () {
 
     if (addMoneyInput.value < 1) {
 
-        addMoneyInput.value = "1"
+        addMoneyInput.value = ""
 
     }
 
@@ -129,9 +131,9 @@ function withdrawMoneyTrans() {
 
     let currMoney2 = document.getElementById('withdrawMoneyInp').value;
 
-    localStorage.setItem("UserCurrentTradingBalance", Number(localStorage.getItem("UserCurrentTradingBalance")) - Number(document.getElementById('withdrawMoneyInp').value))
+    localStorage.setItem("UserCurrentTradingBalance", (Number(localStorage.getItem("UserCurrentTradingBalance")) - Number(document.getElementById('withdrawMoneyInp').value)).toFixed(2))
 
-    localStorage.setItem("UserCurrentSavingBalance", Number(localStorage.getItem("UserCurrentSavingBalance")) + Number(document.getElementById('withdrawMoneyInp').value))
+    localStorage.setItem("UserCurrentSavingBalance", (Number(localStorage.getItem("UserCurrentSavingBalance")) + Number(document.getElementById('withdrawMoneyInp').value)).toFixed(2))
 
     document.getElementById("currBal").innerHTML = "₹" + localStorage.getItem("UserCurrentTradingBalance")
 
