@@ -80,7 +80,7 @@ function portfolioTableDetails() {
         currPerSharePriceTd.innerHTML = (Number(currPortfolioDetails[count - 1].currPerSharePrice)).toFixed(2)
         tableRow.appendChild(currPerSharePriceTd)
 
-        let amtChange = ((Number(currPortfolioDetails[count - 1].buyTotalPrice) - Number(currPortfolioDetails[count - 1].currTotalPrice)).toFixed(2))
+        let amtChange = ((Number(currPortfolioDetails[count - 1].currTotalPrice) - Number(currPortfolioDetails[count - 1].buyTotalPrice)).toFixed(2))
 
         let perChange = (((Number(amtChange) / Number(currPortfolioDetails[count - 1].buyTotalPrice)) * 100 ).toFixed(2));
 
@@ -134,6 +134,7 @@ function portfolioTableDetails() {
 
 }
 
+
 portfolioTableDetails()
 
 function updatePortFolioCurrent() {
@@ -181,17 +182,36 @@ function updatePortFolioCurrent() {
 
         document.getElementById("currPerSharePrice" + count2).innerHTML = pfData[count2 - 1].currPerSharePrice
 
-        count++;
+        let amtChange = ((Number(pfData[count2 - 1].currTotalPrice) - Number(pfData[count2 - 1].buyTotalPrice)).toFixed(2))
+
+        let perChange = (((Number(amtChange) / Number(pfData[count2 - 1].buyTotalPrice)) * 100 ).toFixed(2));
+
+        // console.log(amtChange);
+        // console.log(perChange);
+
+        document.getElementById("perChange" + count2).innerHTML = (perChange) + "%";
+        document.getElementById("amtChange" + count2).innerHTML = amtChange;
+
+        if(Number(amtChange)<0){
+            document.getElementById("amtChange" + count2).style.color = "#ff384c"
+            document.getElementById("perChange" + count2).style.color = "#ff384c"
+        }
+        else{
+
+            document.getElementById("amtChange" + count2).style.color = "#03fc2c"
+            document.getElementById("perChange" + count2).style.color = "#03fc2c"
+
+        }
+
+        count2++;
     }
 
     localStorage.setItem('PortFolio', JSON.stringify(pfData))
 
-
-
 }
 setInterval(() => {
     updatePortFolioCurrent()
-}, 10000);
+}, 5000);
 
 
 function openSellBoxPf(deleteIndex) {
@@ -319,3 +339,6 @@ function finalSellShare() {
    
 
 }
+
+
+updatePortFolioCurrent()
