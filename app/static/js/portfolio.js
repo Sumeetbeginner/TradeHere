@@ -342,3 +342,4 @@ function finalSellShare() {
 
 
 updatePortFolioCurrent()
+updatePortFolioCurrent()
